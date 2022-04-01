@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="animation.css" /> -->
+    <style>
+      .container {
+        width: 400px;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+        height: 400px;
+      }
+      #a,
+      #c {
+        background-color: #ddd;
+        border: none;
+        color: black;
+        /* padding: 10px 20px; */
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        position: relative;
+        display: block;
+        border-radius: 4em;
+        animation: myanimation;
+        animation-duration: 4s;
+        animation-fill-mode: forwards;
+      }
+      #b,
+      #d {
+        top: -60px;
+        left: 200px;
+
+        background-color: #dfdd;
+        border: none;
+        color: black;
+
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        position: relative;
+
+        border-radius: 4em;
+        animation: myanimation;
+        animation-duration: 4s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes myanimation {
+        0% {
+          background-color: white;
+        }
+        25% {
+          background-color: red;
+        }
+        50% {
+          background-color: green;
+        }
+        75% {
+          background-color: blue;
+        }
+        100% {
+          background-color: violet;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="area">
+        <div id="a"></div>
+        <div id="b"></div>
+        <div id="c"></div>
+        <div id="d"></div>
+      </div>
+      <div class="buttonarea">
+        <div class="start" onclick="start()" style="float: left">
+          <button>start</button>
+        </div>
+        <div class="stop" onclick="stop()">
+          <button>stop</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var up = true
+      var value = 20
+      var increment = 1
+      var ceiling = 70
+      const diva = document.getElementById('a')
+      const divb = document.getElementById('b')
+      const divc = document.getElementById('c')
+      const divd = document.getElementById('d')
+
+      function start() {
+        if (up == true && value <= ceiling) {
+          value++
+          diva.style.width = `${value}%`
+          divb.style.width = `${value}%`
+          divc.style.width = `${value}%`
+          divd.style.width = `${value}%`
+          if (value == ceiling) {
+            up = false
+          }
+        } else {
+          up = false
+          value--
+          diva.style.width = `${value}%`
+          divb.style.width = `${value}%`
+          divc.style.width = `${value}%`
+          divd.style.width = `${value}%`
+          if (value == 10) {
+            up = true
+          }
+        }
+      }
+      setInterval(start, 30)
+
+      function stop() {
+        pass
+      }
+    </script>
+  </body>
+</html>
